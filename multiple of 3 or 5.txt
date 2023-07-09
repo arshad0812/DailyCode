@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void SumOfMult(long long n1,long long n2,long long a){
+
+    long long n3=n1*n2;
+   
+    cout<<n1<<","<<n2<<","<<n3<<endl;
+    
+    long long div_1=(a-1)/n1,div_2=(a-1)/n2,div_3=(a-1)/n3;
+
+
+    long long sum=div_1*(div_1+1)*n1+div_2*(div_2+1)*n2-div_3*(div_3+1)*n3>>1;
+
+    cout<<sum;
+
+}
+
+
+int main(){
+
+   int n1=3,n2=5;
+   int a=100;
+   SumOfMult(n1,n2,a);
+   return 0;
+}
+
+
+
+
+python:
+
+
+def Cal(divC):
+    return divC*(divC+1)
+
+
+def SumOfMult(n,n1,n2):
+    n3=n1*n2
+    n-=1
+    divn1=int(n/n1)  
+    divn2=int(n/n2)
+    divn3=int(n/n3)
+
+    print(Cal(divn1)*n1 + Cal(divn2)*n2 - Cal(divn3)*n3>>1)
+
+
+
+
+if __name__=='__main__':
+    n=10
+    n1=3
+    n2=5  
+    SumOfMult(n,n1,n2)
+
+
+
+output-
+ 23
+
+
