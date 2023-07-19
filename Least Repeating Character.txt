@@ -1,0 +1,89 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+bool compar(pair<char,int> i,pair<char,int> j)
+{
+  return i.second<=j.second;
+}
+
+int main(){
+
+  map<char,int> omap;
+  string text="abcbdad";
+  for(int i=0;i<text.size();i++){
+    omap[text[i]]++;
+  }
+  
+  for(auto i:omap)
+  {
+    cout<<i.first<<" "<<i.second<<endl;
+  }
+
+  pair<char,int> smallestCharacter=*min_element(omap.begin(),omap.end(),compar);
+  cout<<smallestCharacter.first<<smallestCharacter.second<<endl;
+}
+
+
+// output-
+// a 2
+// b 2
+// c 1
+// d 2
+// c1
+
+Java:
+
+import java.io.*;
+import java.util.*;
+
+public class dmeo{
+    public static void main(String args[])
+    {
+        String wrd="abadbda";
+
+        String newwrd=new String();
+
+        SortedMap<Character,Integer> hmap=new TreeMap<>();
+        
+        for(int i=0;i<wrd.length();i++)
+        {
+           if(hmap.containsKey(wrd.charAt(i)))
+           {
+				hmap.put(wrd.charAt(i),hmap.get(wrd.charAt(i))+1);
+			}
+			else
+			{
+				hmap.put(wrd.charAt(i),1);
+			}
+           
+        }
+
+        for(Entry<Character,Integer> i:hmap.entrySet())
+        {
+            System.out.println(i.getKey()+" "+i.getValue());
+        }
+
+        System.out.println(Collections.min(hmap));
+
+    }
+}
+
+python:
+
+map={}
+str="abadbda"
+newwrd=""
+
+for i in str:
+    if i in map.keys():
+        map[i]+=1
+    elif i.isalpha():
+        newwrd+=i
+        map[i]=1
+
+for i in map:
+    print(i,map[i])
+
+
+print(min(map.values()))
