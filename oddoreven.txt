@@ -1,0 +1,22 @@
+// c++
+
+#include<iostream>
+
+using namespace std;
+
+
+bool checkoddoreven(long long value)
+{
+    long long result=value&1;
+    return !(result);
+}
+
+int main()
+{
+    long long a;
+    cin>>a;
+    checkoddoreven(a) ? cout<<"Even Number" : cout<<"Odd number"<<endl;
+    return 0;
+}
+
+
