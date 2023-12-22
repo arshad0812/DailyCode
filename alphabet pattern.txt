@@ -1,0 +1,35 @@
+C++:
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+   int number=5,count=64;
+   int i,j;
+   for(i=1;i<=number;i++)
+   {
+       for(j=1;j<=i;j++)
+       {
+           count=count+1;
+           cout<<(char)count;
+           
+       }	
+       cout<<"\n";
+   }
+
+
+}
+
+
+py:
+
+count=64 #alphabet value starts with 65
+for i in range(1,5):
+ for j in range(1,i):
+  count=count+1;
+  print(chr(count),end="")
+ print('')
+
