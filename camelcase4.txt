@@ -1,0 +1,85 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    string wrd,output;
+    while(getline(cin,wrd))
+    {    
+        wrd.erase(remove(wrd.begin(), wrd.end(), '\r'), wrd.end());
+        output="";
+        char opr=wrd[0],typ=wrd[2];
+        for(int i=4;i<wrd.size();i++){
+
+            //TODO for combine operation
+            if(wrd[0]=='C')
+            {
+                if(i==4 && typ=='C')
+                {
+                    output+=toupper(wrd[i]);
+                    continue;
+                }
+
+                if(wrd[i]==' ')
+                {
+                    continue;
+                }
+
+                if(wrd[i-1]==' ' && i!=4)
+                {
+                    output+=toupper(wrd[i]);
+                    continue;
+                }
+
+                
+                output+=wrd[i];
+            }
+            
+            //for split operation
+            else{
+                if(isupper(wrd[i]) && i!=4)
+                {
+                    output+=' ';
+                    output+=tolower(wrd[i]);
+                    continue;
+                }
+                if(wrd[i]=='(')
+                {
+                    break;
+                }
+                if(isupper(wrd[i]) && i==4)
+                {
+                    output+=tolower(wrd[i]);
+                    continue;   
+                }
+                output+=wrd[i];
+            }
+        }
+    if(opr=='C' && typ=='M')
+    {
+        cout<<output+"()"<<endl;
+    } 
+    else
+    {
+        cout<<output<<endl;
+    }
+
+    }
+    return 0;
+}
+
+
+// output:
+// C;M;white sheet of paper
+// whiteSheetOfPaper()
+// S;V;pictureFrame
+// picture frame
+// S;M;plasticCup()
+// plastic cup
+// C;V;mobile phone
+// mobilePhone
+// C;C;coffee machine
+// CoffeeMachine
+// S;C;LargeSoftwareBook
+// large software book
