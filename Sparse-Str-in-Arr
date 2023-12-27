@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+void CheckSParearray(vector<string> strings, vector<string> queries)
+{
+  vector<int> vRet;
+    for(auto it : queries) {
+        int iCount = count_if(strings.begin(), strings.end(), [&](string s) {
+            
+            return it == s;
+        });
+        cout<<iCount<<" "<<it<<endl;
+        vRet.push_back(iCount);
+    }
+  
+}
+
+
+
+int main()
+{
+  vector<string> str{"aba","baba","aba","xzxb"};
+  vector<string> quer{"aba","xzxb","ab"};
+  CheckSParearray(str,quer);
+  return 0;
+}
+
+
+
+// output
+// 2 aba
+// 1 xzxb
+// 0 ab
