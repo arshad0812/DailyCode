@@ -1,0 +1,49 @@
+import java.util.*;
+import java.io.*;
+
+class working{
+    public static void main(String args[])
+    {
+        ArrayList<Integer> arr=new ArrayList<Integer>(Arrays.asList(1,2,3,4,3,2,1));
+
+        for(Integer  i:arr)
+        {
+            int freq=Collections.frequency(arr,i);
+            if(freq==1)
+            {
+                System.out.println(i);
+                break;
+            }
+        }
+        
+    }
+}
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int main(){
+  vector<int> a{1,2,3,4,3,2,1};
+  
+  unordered_set<int> dup;
+  for(int i=0;i<a.size();i++){
+    if(dup.find(a[i]) == dup.end()){
+      dup.insert(a[i]);
+      }
+    else{
+      dup.erase(a[i]);
+      }
+    }
+    auto val = dup.begin();
+    cout<<*val;
+  
+}
+
+
+
+
+
+
