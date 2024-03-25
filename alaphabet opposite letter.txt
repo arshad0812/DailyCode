@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  string arr="ABCDabc";
+  string brr="";
+  for(int i=0;arr[i]!='\0';i++)
+  {
+   if(isupper(arr[i]))
+   {
+    int diff=(int)arr[i]-65;
+    brr+=(char)90-diff;
+   }
+   else
+   {
+    int diff=(int)arr[i]-97;
+    brr+=(char)122-diff;
+   }
+  }
+
+  cout<<brr;
+}
+
+//ouput-ZYXWzyx
