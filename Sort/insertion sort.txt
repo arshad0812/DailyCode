@@ -1,0 +1,119 @@
+c++;
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+void printArray(int arr[],int n){
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+}
+
+
+void insertSort(int arr[],int n)
+{
+   
+    int key=0;
+    int j=0;
+    for(int i=1;i<n;i++)
+    {
+        key=arr[i];
+        j=i-1;
+        while(j>=0 && arr[j]>key)
+        {
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=key;
+    }
+    printArray(arr,n);
+
+    
+
+}
+
+
+
+int main(){
+    int arr[]={12, 11, 13, 5, 6 };
+    int n=sizeof(arr)/sizeof(arr[0]);
+
+    insertSort(arr,n);
+    
+    return 0;
+}
+
+
+java:
+public class working{
+
+     static void printArray(int arr[],int n){
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(arr[i]);
+        }
+     }
+
+    static void insertSort(int arr[],int n){
+        int key=0;
+        int j=0;
+        for(int i=1;i<n;i++)
+        {
+             key=arr[i];
+            j=i-1;
+            while(j>=0 && arr[j]>key)
+            {
+                arr[j+1]=arr[j];
+                j--;
+            }
+            arr[j+1]=key;
+        }
+        
+    }
+
+    public static void main(String[] args){
+        System.out.println("Fine");
+        int arr[]={12, 11, 13, 5, 6};
+        int n=arr.length;
+        insertSort(arr,n);
+        printArray(arr,n);
+
+
+    }
+
+
+}
+
+
+python:
+
+
+def insertSort(arr,n):
+    for i in range(1,len(arr)):
+        key=arr[i]
+        j=i-1
+        while j>=0 and key<arr[j]:
+            arr[j+1]=arr[j]
+            j=j-1
+        arr[j+1]=key
+    printArray(arr,n)
+
+
+def printArray(arr,n):
+    for i in range(len(arr)):
+        print(arr[i])
+
+
+if __name__=="__main__":
+    arr=[12, 11, 13, 5, 6]
+    n=len(arr)
+    insertSort(arr,n)
+    
+
+
+time complexity:
+The worst-case time complexity of the Insertion sort is O(N^2)
+The average case time complexity of the Insertion sort is O(N^2)
+The time complexity of the best case is O(N).
