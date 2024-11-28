@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+
+
+
+
+public class problem{
+
+    static int countofnumber(int n){
+        if(n==0){
+            return 0;
+        }
+
+        return 1+countofnumber(n/10);
+    }
+
+    static int finalcheckfunc(int n,int power){
+        if(n==0){
+            return 0;
+        }
+
+        int digit=n%10;
+        return (int)Math.pow(digit,power)+finalcheckfunc(n/10, power);
+    }
+
+    static boolean checkarmstrong(int n)
+    {
+        int countofn=countofnumber(n);
+        int finalcheck=finalcheckfunc(n,countofn);
+
+        return n==finalcheck;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int n = scanner.nextInt();
+
+
+        if(checkarmstrong(n))
+        {
+            System.out.println("The number is an Armstrong number");
+        }
+        else{
+            System.out.println("The number is not an Armstrong number");
+        }
+}
+}

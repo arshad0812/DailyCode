@@ -1,0 +1,28 @@
+import java.util.*;
+import java.io.*;
+
+
+public class problem {
+
+    public static int reversenum;
+
+    static int RecurMethod(int num){
+        
+        if(num!=0){
+            reversenum=reversenum*10;
+            reversenum+=num%10;
+            RecurMethod(num/10);             
+        }
+
+        return reversenum; 
+        
+    }
+
+
+    public static void main(String args[]){
+        System.out.println("Program to Reverse a number With Recursive Method");
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        System.err.println(RecurMethod(num));
+    }
+}

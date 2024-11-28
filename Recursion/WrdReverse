@@ -1,0 +1,30 @@
+Java:
+ 
+import java.io.*;
+import java.util.*;
+import java.util.Map.Entry;
+
+
+
+public class working {
+    public static void main(String[] args) {
+        String sentence = "This is a sample sentence";
+        String reversedSentence = reverseWords(sentence);
+        System.out.println(reversedSentence);
+    }
+
+    public static String reverseWords(String sentence) {
+        int index = sentence.indexOf(' ');
+        System.out.println(index);
+        System.out.println(sentence);
+        if (index == -1) {
+            return sentence; // Base case: no more words left
+        } else {
+            String firstWord = sentence.substring(0, index);
+            String remainingSentence = sentence.substring(index + 1);
+            
+            
+            return  reverseWords(remainingSentence) + " " + firstWord;
+        }
+    }
+}

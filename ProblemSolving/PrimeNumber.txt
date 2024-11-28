@@ -1,0 +1,65 @@
+#include <iostream>
+
+#include<cmath>
+using namespace std;
+
+int ans() {
+ int n=49,count=0;
+ for(int i=2;i<sqrt(n);i++)
+{
+  if(n%i==0)
+  {
+    return 0;
+  }
+}
+
+return 1;
+}
+
+int main()
+{
+  cout<<ans();
+}
+
+
+//java
+
+
+
+import java.util.*;
+
+class newclass2
+{
+	static Boolean ans(int num)
+	{
+		
+		for(int i=2;i<Math.sqrt(num);i++)
+		{
+			if(num%i==0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static void main(String args[])
+	{
+		int num=1;
+		int anss;
+		if(ans(num)==false)
+		{
+			System.out.print("not a prime");
+		}
+		else
+		{
+			System.out.print("a prime");
+		}
+		
+	}
+	
+	
+}
+
+
+//output-prime

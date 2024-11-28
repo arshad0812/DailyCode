@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.io.*;
+
+
+public class problem {
+
+
+
+    static void recursivepattern1(int row,int col){
+
+
+
+        if(row==0){
+            return;
+        }
+
+
+        if(col<row){
+            System.out.print("*");
+            recursivepattern1(row, col+1);
+        }
+        else{
+            System.out.println();
+            recursivepattern1(row-1, 0);
+        }
+    }
+
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number of rows:");
+        int num=sc.nextInt();
+
+        recursivepattern1(num,0);        
+    }
+}
+
+
+*****
+****
+***
+**
+*
