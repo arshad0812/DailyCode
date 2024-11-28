@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+
+
+class problem{
+
+    public static void BinaryConverion(int n){
+        if(n==0){
+            return;
+        }
+
+        BinaryConverion(n/2);
+        System.out.print(n%2);
+    }
+    public static void main(String args[]){
+
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number of n:");
+        int n=sc.nextInt();
+        System.out.print("Binary Value is:");
+        BinaryConverion(n);
+
+    }
+}
+
+
+
+// output
+// Enter the number of n:
+// 21
+// Binary Value is:10101
