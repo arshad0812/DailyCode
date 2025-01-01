@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class LongestContinuousSubarray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the size of the array
+        System.out.print("Enter the size of the array: ");
+        int n = scanner.nextInt();
+
+        // Input the array elements
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Find the longest continuous subarray
+        findLongestContinuousSubarray(arr);
+
+        scanner.close();
+    }
+
+    // Function to find and print the longest continuous subarray
+    public static void findLongestContinuousSubarray(int[] arr) {
+        int n = arr.length;
+        int maxLength = 1;  // Start with a minimum subarray length of 1
+        int currentLength = 1;
+        int start = 0, end = 0;
+        int tempStart = 0;
+
+        // Loop through the array to find the longest continuous subarray
+        for (int i = 1; i < n; i++) {
+            if (arr[i] == arr[i - 1] + 1) {  // Check if continuous (increasing by 1)
+                currentLength++;
+            } else {
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                    start = tempStart;
+                    end = i - 1;
+                }
+                currentLength = 1;  // Reset current length
+                tempStart = i;      // Update the start of the new subarray
+            }
+        }
+
+        // Check for the last subarray
+        if (currentLength > maxLength) {
+            maxLength = currentLength;
+            start = tempStart;
+            end = n - 1;
+        }
+
+        // Output the longest continuous subarray
+        System.out.println("Longest continuous subarray starts from index " + start + " to " + end);
+        System.out.print("Subarray: ");
+        for (int i = start; i <= end; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+//output
+// n=10
+// 0 , 1 , 2 , 4 , 5 , 6 , 8 , 9 , 10 , 11
+// start from index 6 to 9 

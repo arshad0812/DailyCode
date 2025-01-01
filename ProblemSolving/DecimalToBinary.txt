@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Problem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for input
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+
+        // Convert decimal to binary manually
+        StringBuilder binary = new StringBuilder();
+        
+        // Process the decimal number
+        while (decimal > 0) {
+            int remainder = decimal % 2;  // Get the remainder
+            binary.append(remainder);    // Append the remainder to binary
+            decimal = decimal / 2;       // Update decimal by dividing by 2
+        }
+
+        // The binary digits are in reverse order; reverse the string
+        binary.reverse();
+
+        // Display the result
+        System.out.println("Binary representation: " + (binary.length() > 0 ? binary.toString() : "0"));
+
+        scanner.close();
+    }
+}
+
+
+//output
+//1010

@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.io.*;
+
+
+public class problem {
+
+
+
+    public static void main(String args[]){
+        System.out.println("Program to Count Number of  Digits in number");
+
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int count=0;
+        int temp=num;
+        while(num!=0){
+            count++;
+            num=num/10;
+        }
+        System.out.println("Number of digits in "+temp+" is "+count);
+    }
+}
+
+
+
+
+
+
+const readline=require("readline");
+
+const rl=readline.createInterface(
+    {
+        input:process.stdin,
+        output:process.stdout
+    }
+);
+
+
+rl.question('Enter the Number:',(number)=>{
+    
+
+    console.log(number.toString().length);
+
+    rl.close();
+});
+
+

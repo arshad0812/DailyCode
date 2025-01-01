@@ -1,0 +1,42 @@
+public class Problem {
+
+    public static void main(String args[]) {
+        int a = 989;
+        int b = 989;
+        int carry = 0;
+        int count = 0;
+        int sum = 0;
+        int place = 1; // To keep track of the place value (ones, tens, etc.)
+
+        // Perform addition with carry propagation
+        while (a > 0 || b > 0 || carry != 0) {
+            int n1 = a % 10;
+            int n2 = b % 10;
+            int digitSum = n1 + n2 + carry;
+
+            // If digit sum is greater than or equal to 10, there will be a carry
+            if (digitSum >= 10) {
+                carry = 1;
+                count++; // Increment carry count
+                digitSum = digitSum % 10; // Keep only the last digit
+            } else {
+                carry = 0;
+            }
+
+            // Update the sum at the correct place value
+            sum += digitSum * place;
+            place *= 10; // Move to the next place value (ones -> tens -> hundreds)
+
+            // Move to the next digit
+            a /= 10;
+            b /= 10;
+        }
+
+        // Now sum contains the final result of the addition
+        System.out.println("Total value is: " + sum);
+    }
+}
+
+
+//output
+// Total value is: 1978

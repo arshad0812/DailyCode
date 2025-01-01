@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Problem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for input
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+
+        // Convert decimal to octal manually
+        StringBuilder octal = new StringBuilder();
+
+        while (decimal > 0) {
+            int remainder = decimal % 8;  // Get the remainder when divided by 8
+            octal.append(remainder);     // Append the remainder
+            decimal = decimal / 8;       // Update decimal by dividing by 8
+        }
+
+        // Reverse the string to get the correct order
+        octal.reverse();
+
+        // Display the result
+        System.out.println("Octal representation: " + (octal.length() > 0 ? octal.toString() : "0"));
+
+        scanner.close();
+    }
+}
+
+
+// output
+// 156
+// 234

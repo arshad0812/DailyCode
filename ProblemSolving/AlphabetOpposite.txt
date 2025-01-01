@@ -1,0 +1,33 @@
+import java.util.*;
+import java.io.*;
+
+
+public class Program {
+
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+
+        String wrd=sc.next();
+        StringBuilder finalwrd=new StringBuilder();
+
+        for(int i=0;i<wrd.length();i++){
+            
+            if(Character.isUpperCase(wrd.charAt(i))){
+                
+                int count=(int)wrd.charAt(i)-65;
+                finalwrd.append((char)(90-count));
+            }
+            else{
+                int count=(int)wrd.charAt(i)-97;
+                finalwrd.append((char)(122-count));
+            }
+        }
+        System.out.println(finalwrd);
+    }
+}
+
+// input
+// AbC
+
+//output
+// ZyX

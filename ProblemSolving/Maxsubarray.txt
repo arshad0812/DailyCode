@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int maxSubArraySum(int a[],int n)
+{
+    int maxsum=0;
+    int cursum=0;
+    int startindex;
+    int start=0;
+    int endindex;
+    for(int i=0;i<n;i++)
+    {
+        cursum+=a[i];
+        if(cursum<=0)
+        {
+            cursum=0;
+            start=i+1;
+        }
+        
+        
+        if(cursum>=maxsum)
+        {
+            startindex=start;
+            endindex=i;
+
+        }
+
+        
+        maxsum=max(cursum,maxsum);
+    }
+    cout<<startindex<<endindex;
+    return maxsum;
+}
+
+
+
+int main(){
+    int a[] = {4, -2, -2, 1, 2, -3};
+    int n = sizeof(a) / sizeof(a[0]);
+
+    // Function Call
+    int max_sum = maxSubArraySum(a, n);
+    cout << "Maximum contiguous sum is " << max_sum;
+    return 0;
+
+}
+
+
+// output
+// Maximum contiguous sum is 7
+
+
+java
+
+import java.util.*;
+import java.io.*;
+
+public class Program {
+    public static void main(String args[])
+    {
+        int arr[]={2, 3, -8, 7, -1, 2, 3};
+        int n=arr.length;
+        int maxsum=arr[0];  
+        int cursum=arr[0];
+        for(int i=1;i<n;i++){
+            cursum=Math.max(cursum+arr[i],arr[i]);
+            maxsum=Math.max(maxsum,cursum); 
+        }
+
+        System.out.println(maxsum); 
+        
+    }
+
+   }
+   
+   
+    
+   
+//    output
+// 11

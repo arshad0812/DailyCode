@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class DecimalToHexadecimalManual {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for input
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+
+        // Convert decimal to hexadecimal manually
+        StringBuilder hexadecimal = new StringBuilder();
+
+        // Hexadecimal characters for digits above 9
+        char[] hexChars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+                           'A', 'B', 'C', 'D', 'E', 'F'};
+
+        while (decimal > 0) {
+            int remainder = decimal % 16;  // Get the remainder when divided by 16
+            hexadecimal.append(hexChars[remainder]);  // Use the remainder as index for hexChars
+            decimal = decimal / 16;  // Update decimal by dividing by 16
+        }
+
+        // Reverse the string to get the correct order
+        hexadecimal.reverse();
+
+        // Display the result
+        System.out.println("Hexadecimal representation: " + (hexadecimal.length() > 0 ? hexadecimal.toString() : "0"));
+
+        scanner.close();
+    }
+}
+
+
+// output
+// Enter a decimal number: 254
+// Hexadecimal representation: FE

@@ -1,0 +1,48 @@
+import java.util.*;
+import java.io.*;
+
+public class Problem{
+    public static void main(String[] args){
+
+        
+        
+        Scanner sc=new Scanner(System.in);
+        String wrd1="Gee ks";
+        String wrd2="ks";
+        int flag=0;
+        for(int i=0;i<=wrd1.length()-wrd2.length();i++){
+            if(wrd1.charAt(i)==wrd2.charAt(0))
+            {
+            
+                for(int j=0;j<wrd2.length();j++){
+                    if(wrd1.charAt(i+j)!=wrd2.charAt(j))
+                    {
+                        break;
+                    }
+
+                    if(j==wrd2.length()-1){
+                        flag=1;
+                        break;
+                    }
+                 
+                }
+            }
+        }
+
+        if(flag==1){
+            System.out.println("Sub String found");
+        }
+        else{
+            System.out.println("Substring not found");
+        }
+
+
+
+
+
+    }
+}
+
+
+//ouput
+// Substring found

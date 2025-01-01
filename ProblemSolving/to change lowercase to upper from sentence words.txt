@@ -1,0 +1,33 @@
+C:
+
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char ars[23]={"arsh ad"};
+    int i,j,len,count=0;
+    len=strlen(ars);
+    
+    for(i=0;i<len;i++)
+    {
+        if(i==0 || i==len-1)
+        {
+            ars[i]=toupper(ars[i]);
+        }
+        else if(ars[i]==' ')
+        {
+            ars[i-1]=toupper(ars[i-1]);
+            ars[i+1]=toupper(ars[i+1]);
+        }
+    }
+    printf("%s",ars);
+    
+    
+}
+
+python:
+a="arshaD"
+
+for i in range(len(a)):
+    a[i].upper()
+    print(a[i])

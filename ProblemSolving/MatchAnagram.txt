@@ -1,0 +1,48 @@
+
+
+import java.util.*;
+
+public class Program
+{
+	public static void main(String[] args)
+    {
+       HashMap<String,ArrayList<String>> map=new HashMap<>();
+       String arr[]={"ate","eta","tea","tan","nat"};
+       for(String i:arr)
+       {
+           char newarr[]=i.toCharArray();
+           Arrays.sort(newarr);
+           String wrd=new String(newarr);
+           if(map.containsKey(wrd))
+           {
+            map.get(wrd).add(wrd);
+           }
+           else
+           {
+               ArrayList<String> drr=new ArrayList<String>();
+               drr.add(i);
+               map.put(wrd,drr);
+           }
+
+           
+       }
+       for(Map.Entry<String,ArrayList<String>> i:map.entrySet())
+       {
+           
+           System.out.println(i.getKey());
+           System.out.println(i.getValue());
+
+       }
+
+
+      
+	}
+
+}
+
+
+// output
+// aet
+// [ate, aet, aet]
+// ant
+// [tan, ant]

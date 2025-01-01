@@ -1,0 +1,33 @@
+
+
+public class Program {
+    public static void main(String args[])
+    {
+        int arr[]={3, 0, 2, 0, 4};
+        int n=arr.length;
+        int res=0;
+        for(int i=1;i<n-1;i++){
+            int leftmax=arr[i];
+            for(int j=0;j<i;j++){
+                leftmax=Math.max(leftmax,arr[j]);
+            }
+
+            int rightmax=arr[i];
+            for(int j=i+1;j<n;j++){
+                rightmax=Math.max(rightmax,arr[j]);
+            }
+
+            res+=Math.min(leftmax,rightmax)-arr[i];
+        }
+
+        System.out.println("Unit of water stored" + res);
+    }
+
+   }
+   
+   
+    
+   
+//    output
+
+//    Minimum number of swaps required = 7

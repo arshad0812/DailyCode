@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string arr = "as2f sdf3 edf1sf";
+    map<int, string> mapp;
+    string ans = "";
+    int j = 0;
+    int key;
+
+    while (j <= arr.size() - 1)
+    {
+        if (isdigit(arr[j]))  // If the current character is a digit
+        {
+            key = (int)arr[j] - 48;  // Convert the digit to an integer
+            ans += arr[j];  // Add the digit to the current word
+            j++;
+        }
+        if (arr[j] == ' ')  // If we encounter a space
+        {
+            mapp[key] = ans;  // Add the current word to the map with the key
+            ans = "";  // Reset the word for the next word
+            j++;
+        }
+        else
+        {
+            ans += arr[j];  // Add the current character to the word
+            j++;
+        }
+    }
+    
+    // Add the last word after the loop ends
+    if (!ans.empty()) {
+        mapp[key] = ans;
+    }
+
+    // Output the map
+    for (auto q : mapp) {
+        cout << q.first << " " << q.second << endl;
+    }
+
+    return 0;
+}

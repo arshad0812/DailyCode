@@ -1,0 +1,39 @@
+
+
+import java.util.*;
+
+class newclass2
+{
+	static Boolean ans(int num)
+	{
+		
+		for(int i=2;i<Math.sqrt(num);i++)
+		{
+			if(num%i==0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static void main(String args[])
+	{
+		int num=1;
+		int anss;
+		if(ans(num)==false)
+		{
+			System.out.print("not a prime");
+		}
+		else
+		{
+			System.out.print("a prime");
+		}
+		
+	}
+	
+	
+}
+
+
+//output-prime

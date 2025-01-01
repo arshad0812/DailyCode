@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class DisariumNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for input
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        // Check if the number is a Disarium number
+        if (isDisarium(number)) {
+            System.out.println(number + " is a Disarium Number.");
+        } else {
+            System.out.println(number + " is not a Disarium Number.");
+        }
+
+        scanner.close();
+    }
+
+    // Function to check if a number is a Disarium number
+    public static boolean isDisarium(int number) {
+        int sum = 0;
+        int temp = number;
+        int length = Integer.toString(number).length(); // Find the number of digits
+
+        while (temp > 0) {
+            int digit = temp % 10; // Extract the last digit
+            sum += Math.pow(digit, length); // Add digit^position to the sum
+            length--; // Decrement the position
+            temp /= 10; // Remove the last digit
+        }
+
+        return sum == number; // Check if the sum equals the original number
+    }
+}
+
+
+//output    
+//175=1(pow(1))+7(pow(2))+5(pow(3))

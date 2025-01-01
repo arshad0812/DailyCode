@@ -1,0 +1,45 @@
+import java.util.*;
+import java.io.*;
+
+public class Program {
+    
+    // Method to convert binary array to decimal
+    public static void BracketClosedOrNot(String wrd, int n){
+        
+        int bracketcount=0;
+        Stack<Character> st=new Stack<>();
+        for(int i=0;i<n;i++){
+            if(wrd.charAt(i)=='('){
+                bracketcount++;
+                st.push('(');
+            }
+            
+            if(wrd.charAt(i)==')'){
+                bracketcount--;
+                st.pop();
+            }
+        }
+        
+        if(!st.isEmpty()){
+            System.out.println("No, the brackets are not closed.");
+        }
+        else{
+            System.out.println("Yes, the brackets are closed.");
+        }
+
+
+    }
+
+    public static void main(String args[]) {
+        // Binary number 101 (in array format)
+        String wrd="(())()(";
+        int n = wrd.length();  // Length of the array
+        
+        // Convert binary to decimal
+        BracketClosedOrNot(wrd, n);
+    }
+}
+
+
+// Output
+// Yes, the brackets are closed.

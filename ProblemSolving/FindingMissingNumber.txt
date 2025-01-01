@@ -1,0 +1,51 @@
+    import java.io.*;
+    import java.util.*;
+
+
+
+    public class Problem{
+
+        public static int missingNumber(int[] nums) {
+            // int n=Arrays.stream(nums).max().getAsInt();
+            Arrays.sort(nums);
+            int n=nums.length;
+            n=nums[n-1];
+            int freq[]=new int[n];
+            int m=nums.length;
+            
+            for(int i=0;i<m;i++){
+                
+                freq[nums[i]-1]=1; 
+            }
+            
+            for (int i = 0; i <= n; i++) {
+                if (freq[i] == 0) {
+                    return i+1;
+                }
+            }
+            System.out.println(freq[6]);
+            // return -1;       
+
+
+            return -1;
+
+
+        }
+
+        public static void main(String args[]){
+            int[] arr
+            = { 1, 2, 3,4, 5,8 };  
+        int res = missingNumber(arr);
+
+        if(res!=-1){
+            System.out.println("Missing number is: " + res);
+        }
+        else{
+            System.out.println("No missing number");
+        }
+        }
+    }
+
+
+// output
+// Missing number is: 6

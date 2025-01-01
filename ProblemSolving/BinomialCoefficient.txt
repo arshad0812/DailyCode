@@ -1,0 +1,52 @@
+import java.util.*;
+
+
+
+import java.io.*;
+
+
+
+public class BinomialCoefficient{
+
+    public static int BinomialCoefficientfunc(int n,int k){
+
+        if(k>n){
+            return 0;
+        }
+
+        if(k==0 || k==n){
+            return 1;
+        }
+
+        return BinomialCoefficientfunc(n-1,k-1)+BinomialCoefficientfunc(n-1,k);
+    }
+
+
+    public static void main(String args[]){
+    System.out.println("Enter the number of rows:");
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+
+        System.out.println("Enter the value of k:");
+        Scanner sc1=new Scanner(System.in);
+        int k=sc1.nextInt();
+
+
+        System.out.println(BinomialCoefficientfunc(n,k));
+
+    }
+}
+
+// Binomial Coefficient
+ 
+// Formula
+// n!/k!(k-n)!
+
+// output
+
+// Enter the number of rows:
+// 5
+// Enter the value of k:
+// 2
+// 10
+              
