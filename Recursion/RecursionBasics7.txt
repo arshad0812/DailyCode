@@ -1,0 +1,33 @@
+import java.util.*;
+import java.io.*;
+
+
+public class Program {
+    public static String reversedwrd(String wrd){
+        if(wrd.isEmpty())
+        {
+            return wrd;
+        }
+
+        System.out.println(wrd);
+        return reversedwrd(wrd.substring(1))+wrd.charAt(0);
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter a Word:");
+        String wrd=sc.next();
+        System.out.println("Reversed Wrd:"+reversedwrd(wrd));
+    }
+}
+
+
+// output
+
+// Enter a Word:Hello
+// Hello
+// ello
+// llo
+// lo
+// o
+// Reversed Wrd:olleH

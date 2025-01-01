@@ -1,0 +1,25 @@
+public class AtoiRecursive {
+    public static int atoiRecursive(String str, int index) {
+        // Base case: If the index is less than 0, return 0
+        if (index < 0) {
+            return 0;
+        }
+
+        // Convert the current character to its integer value
+        int digit = str.charAt(index) - '0';
+
+        // Recursive call to process the rest of the string
+        return atoiRecursive(str, index - 1) * 10 + digit;
+    }
+
+
+    public static void main(String[] args) {
+        String str = "112";
+        System.out.println(atoiRecursive(str,str.length()-1));
+    }
+}
+
+
+//output
+
+// 112
