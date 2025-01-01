@@ -1,0 +1,60 @@
+public class MatrixDeterminant {
+
+    // Function to get the determinant of a matrix
+    public static int determinant(int[][] matrix) {
+        int n = matrix.length;
+        
+        // Base case for 1x1 matrix
+        if (n == 1) {
+            return matrix[0][0];
+        }
+        
+        // Base case for 2x2 matrix
+        if (n == 2) {
+            return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        }
+        
+        // Recursive case for n > 2
+        int det = 0;
+        for (int i = 0; i < n; i++) {
+            // Create a submatrix for each element of the first row
+            int[][] submatrix = new int[n - 1][n - 1];
+            for (int j = 1; j < n; j++) {
+                int colIndex = 0;
+                for (int k = 0; k < n; k++) {
+                    if (k == i) continue; // Skip the current column
+                    submatrix[j - 1][colIndex++] = matrix[j][k];
+                }
+            }
+            // Use the sign alternation (+, -, +, -) for Laplace expansion
+            det += Math.pow(-1, i) * matrix[0][i] * determinant(submatrix);
+        }
+        
+        return det;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {4, 3, 2},
+            {3, 2, 1},
+            {2, 1, 3}
+        };
+        System.out.println(Math.pow(-1,3));
+        System.out.println("Determinant of the matrix is: " + determinant(matrix));
+    }
+}
+
+
+// output
+
+
+//𝐴=( 𝑎 𝑏 𝑐
+//    𝑑 𝑒 𝑓
+//   𝑔 ℎ 𝑖
+//   )
+​
+ 
+
+//det(𝐴)=𝑎(𝑒𝑖−𝑓ℎ)−𝑏(𝑑𝑖−𝑓𝑔)+𝑐(𝑑ℎ−𝑒𝑔)
+
+// Determinant of the matrix is: -3

@@ -1,0 +1,32 @@
+import java.util.*;
+import java.io.*;
+
+public class Program {
+    
+    public static int[] MaxInEachRow(int arr[][],int n,int m){
+        int res[]=new int[n];
+        for(int i=0;i<n;i++){
+            int max=Arrays.stream(arr[i]).max().getAsInt();
+            res[i]=max;
+        }
+
+        return res;
+    }
+    public static void main(String args[]) {
+        
+        int mat[][]={{1,4,3},{5,7,6},{9,11,10}};
+        int n=mat.length;  // Length of the array
+        int m=mat[0].length;
+        
+        int res[]=MaxInEachRow(mat,n,m);
+        for(int i=0;i<n;i++){
+            System.out.println(res[i]+" ");
+        }
+    }
+}
+
+
+// Output
+// 4 
+// 7 
+// 11

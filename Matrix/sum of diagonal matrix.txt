@@ -1,0 +1,35 @@
+C++:
+
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+    int n,i,j,ans;
+    cin>>n;
+    
+    int arr[n][n];
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            cin>>arr[i][j];
+        }
+    }
+    int leftsum=0;
+    for(i=0;i<n;i++)
+    {
+        leftsum+=arr[i][i];
+    }
+     
+    int rightsum=0;
+    for(i=0;i<n;i++)
+    {
+        rightsum+=arr[i][n-1-i];
+    }
+    ans=rightsum-leftsum;
+    cout<<ans;
+    
+    return 0;
+}

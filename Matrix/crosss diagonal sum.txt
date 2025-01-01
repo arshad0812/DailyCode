@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+ 
+ int n;
+ cout<<"enter the order of matrix:";
+ cin>>n;
+ 
+
+ int aa[n][n];
+ for(int i=0;i<n;i++)
+ {
+  for(int j=0;j<n;j++)
+  {
+   scanf("%d", &aa[i][j]);
+  }
+ }
+
+int leftsum=0;
+int rightsum=0;
+for(int i=0;i<n;i++)
+{
+ for(int j=0;j<n;j++)
+ {
+  if(i==j)
+  {
+   leftsum+=aa[i][i];
+  }
+  }
+  rightsum+=aa[i][n-1-i];
+ }
+
+
+
+ int sum=leftsum-rightsum;
+ cout<<leftsum<<rightsum<<sum;
+}
+
+
+
+
+/*output-
+1 2 3 
+4 5 6
+7 8 9
+ans-0*/
+
+

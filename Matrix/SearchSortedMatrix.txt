@@ -1,0 +1,55 @@
+    import java.io.*;
+    import java.util.*;
+
+
+
+    public class Problem{
+
+        public static boolean SearchInSortedMatrix(int mat[][],int n,int m,int target){
+            int low=0;
+            int high=n*m-1;
+
+            while(low<=high){
+                
+                int mid=low+(high-low)/2;
+                int row=mid/m;
+                int col=mid%m;
+                if(mat[row][col]==target){
+                    return true;
+                }
+                else if(mat[row][col]>target){
+                    low=mid+1;
+                }
+                else{
+                    high=mid-1;
+                }
+                
+            }
+            return false;
+        }
+
+        public static void main(String args[]){
+            int[][] mat = {
+                {0, 6, 8, 9, 11},
+                {20, 22, 28, 29, 31},
+                {36, 38, 50, 61, 63},
+                {64, 66, 100, 122, 128}
+            };
+
+            int n=mat.length;
+            int m=mat[0].length;
+            int target=31;
+            if(SearchInSortedMatrix(mat,n,m,target)){
+                System.out.println("Number found");
+            }
+            else{
+                System.out.println("Number not found");
+            }
+
+        }
+    }
+
+
+
+    // output
+    // Number found
