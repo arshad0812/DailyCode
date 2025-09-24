@@ -22,7 +22,17 @@ public class PowerOfNumber{
 
         double ans=1.0;
 
+        Handles negative powers:
 
+
+
+    //Efficient calculation:
+
+    //It uses exponentiation by squaring:
+
+    //If the power is even, square the base and halve the exponent.
+
+    //If the power is odd, multiply the result by the base and decrease the exponent.
         while(nn>=1){
             if(nn%2==1){
                 ans=ans*x;
@@ -45,3 +55,4 @@ public class PowerOfNumber{
 
     }
 }
+
